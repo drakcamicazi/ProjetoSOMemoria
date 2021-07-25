@@ -1,3 +1,5 @@
+package memoryManagement;
+
 /**
  * @author Clever Ricardo Guareis de Farias
  */
@@ -11,7 +13,7 @@ public interface ManagementInterface {
 	 * @throws MemoryOverflowException caso nao haja memoria suficiente para carregar o processo para a memoria
 	 * @return o identificador do processo carregado na memoria
 	 */
-    public int loadProcessToMemory(String processName) throws NoSuchFileException, FileFormatException, MemoryOverflowException;
+    public int loadProcessToMemory(String processName); //throws NoSuchFileException, FileFormatException, MemoryOverflowException;
 
     /** 
 	 * Aloca memoria dinamica (heap) para um processo virtual carregado na memoria principal 
@@ -22,7 +24,7 @@ public interface ManagementInterface {
 	 * @throws MemoryOverflowException caso nao haja memoria suficiente para atender a solicitacao		
 	 * @return a quantidade de memoria alocada
 	 */
-    public int allocateMemoryToProcess(int processId, int size) throws InvalidProcessException, StackOverflowException, MemoryOverflowException;
+    public int allocateMemoryToProcess(int processId, int size); //throws InvalidProcessException, StackOverflowException, MemoryOverflowException;
 	
     /** 
 	 * Libera um bloco de memoria dinâmica (heap) ocupado por um processo 
@@ -32,14 +34,14 @@ public interface ManagementInterface {
 	 * @throws NoSuchMemoryException no caso de um tamanho de memoria maior do que a quantidade de memoria dinamica alocada para o processo
 	 * @return a quantidade de memoria liberada
 	 */	
-    public int freeMemoryFromProcess(int processId, int size) throws InvalidProcessException, NoSuchMemoryException;
+    public int freeMemoryFromProcess(int processId, int size); //throws InvalidProcessException, NoSuchMemoryException;
 
     /** 
 	 * Exclui processo da memoria, liberando toda a memoria utilizada por esse processo de forma exclusiva
 	 * @param processId o identificador do processo
 	 * @throws InvalidProcessException no caso de um identificador de processo invalido
 	 */
-    public void excludeProcessFromMemory(int processId) throws InvalidProcessException;
+    public void excludeProcessFromMemory(int processId); //throws InvalidProcessException;
 	
     /** 
 	 * Exclui todos os processo da memoria, liberando toda a memoria utilizada por esses processos
@@ -54,7 +56,7 @@ public interface ManagementInterface {
 	 * @throws InvalidAddressException no caso de um endereco logico invalido (menor do que 0 ou maior do que 1023 ou endereco invalido dentro do processo)
 	 * @return o endereco fisico correspondente
 	 */	
-    public int getPhysicalAddress(int processId, int logicalAddress) throws InvalidProcessException, InvalidAddressException;
+    public int getPhysicalAddress(int processId, int logicalAddress); //throws InvalidProcessException, InvalidAddressException;
 	
     /** 
 	 * Obtem o mapa de bits dos quadros da memoria
@@ -68,7 +70,7 @@ public interface ManagementInterface {
 	 * @throws InvalidProcessException no caso de um identificador de processo invalido
 	 * @return o tabela de paginas do processo como uma string		
 	 */
-	public String getPageTable(int processId) throws InvalidProcessException;
+	public String getPageTable(int processId); //throws InvalidProcessException;
 	
     /** 
 	 * Obtem informacoes sobre os processos carregados na memoria (nome e identificadores)
