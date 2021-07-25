@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"memoryManagement","l":"ManagementInterface"},{"p":"memoryManagement","l":"MemoryManager"},{"p":"process","l":"PageTable"},{"p":"process","l":"Process"},{"p":"memoryManagement","l":"UserInterface"}]

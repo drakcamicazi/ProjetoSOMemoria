@@ -1,5 +1,7 @@
 package memoryManagement;
 
+import exceptions.MemoryOverflowException;
+
 /**
  * @author Clever Ricardo Guareis de Farias
  */
@@ -13,7 +15,7 @@ public interface ManagementInterface {
 	 * @throws MemoryOverflowException caso nao haja memoria suficiente para carregar o processo para a memoria
 	 * @return o identificador do processo carregado na memoria
 	 */
-    public int loadProcessToMemory(String processName); //throws NoSuchFileException, FileFormatException, MemoryOverflowException;
+    public int loadProcessToMemory(String processName) throws MemoryOverflowException; //NoSuchFileException, FileFormatException,
 
     /** 
 	 * Aloca memoria dinamica (heap) para um processo virtual carregado na memoria principal 
