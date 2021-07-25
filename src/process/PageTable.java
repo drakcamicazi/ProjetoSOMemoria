@@ -10,6 +10,12 @@ public class PageTable {
         pageTable = new int[numberOfPages][2];
     }
 
+    /**
+     * pageTable define a PageTable em si. Consiste de uma matriz de numberOfPages linhas, e 2 colunas.
+     * Para cada linha (numero de pagina), a primeira coluna indica com 1 se ela é válida, ou com 0 se ela é inválida.
+     * Para cada linha (numero de página), a segunda coluna mapeia o endereço físico respectivo àquela página
+     *                                                  (endereço base do quadro de memória)
+     * **/
     public PageTable(){
         this.numberOfPages = 32;
         pageTable = new int[numberOfPages][2];
@@ -39,7 +45,6 @@ public class PageTable {
             return -1;
         }
     }
-
 
     public int getNumberOfPages() {
         return numberOfPages;
