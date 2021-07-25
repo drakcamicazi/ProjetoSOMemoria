@@ -85,7 +85,6 @@ public class Process {
 
         List<String> lines;
         File inputFile;
-        Scanner input;
         int i;
         String processName;
         int textSize;
@@ -93,18 +92,23 @@ public class Process {
 
         i = 0;
         lines = new ArrayList<String>();
-
-        inputFile= new File(fileName);
-        try {
-            input = new Scanner(inputFile);
-            while(input.hasNextLine()){
+        inputFile = new File(fileName);
+        try(Scanner input = new Scanner(inputFile)) {     //try(  abrirArquivoAqui  ){} garante que ele sera fechado independente
+                                                                //de acontecer excecao ou nao
+            while (input.hasNextLine()) {
                 lines.add(input.nextLine());
                 System.out.println(lines.get(i));
                 i++;
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        }catch (FileNotFoundException e) {
+            System.out.println("Arquivo " + fileName + "não encontrado!!");
+        }catch (NullPointerException e){
+            System.out.println("Problema na leitura do arquivo, confira se a construção dele segue a BNF especificada.");
         }
+
+
+
+
 
         processName = lines.get(0).split("program ")[1];
         textSize = Integer.parseInt(lines.get(1).split("text ")[1]);
